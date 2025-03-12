@@ -2,14 +2,14 @@ import TrackOrders from '@/components/modules/order/track-order/TrackOrders';
 import { getOrders } from '@/services/Orders';
 
 interface IOrderItem {
-  name: string | undefined;
-  quantity: number | undefined;
+  name: string;
+  quantity: number;
 }
 
 export interface IOrderedData {
   id: string;
   orderDate: string;
-  estimatedDelivery: number;
+  estimatedDelivery: string;
   status: 'pending' | 'in_progress' | 'delivered';
   items: IOrderItem[];
 }
@@ -29,11 +29,11 @@ export default async function TrackOrder() {
   const orderedData: IOrderedData[] = orders?.data?.map(order => ({
     id: order._id,
     orderDate: order.createdAt,
-    estimatedDelivery: new Date(order.createdAt).getTime() + 3 * 24 * 60 * 60 * 1000,
+    estimatedDelivery: new Date(order.createdAt).toISOString(),
     status: order.status as 'pending' | 'in_progress' | 'delivered',
     items: order.meals.map(meal => ({
-      name: meal.meal,
-      quantity: meal.quantity,
+      name: meal.meal ?? '',
+      quantity: meal.quantity ?? 0,
     })),
   }));
 

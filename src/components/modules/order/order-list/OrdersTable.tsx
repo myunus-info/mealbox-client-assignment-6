@@ -12,7 +12,6 @@ import { TOrder } from '@/types/order';
 
 interface OrdersTableProps {
   orders: TOrder[];
-  // onStatusChange: (orderId: string, newStatus: 'pending' | 'in_progress' | 'delivered') => void;
 }
 
 const OrdersTable: React.FC<OrdersTableProps> = ({ orders }) => {
@@ -31,14 +30,14 @@ const OrdersTable: React.FC<OrdersTableProps> = ({ orders }) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {orders.length === 0 ? (
+          {orders?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6} className="h-24 text-center">
                 No orders found
               </TableCell>
             </TableRow>
           ) : (
-            orders.map(order => {
+            orders?.map(order => {
               const grandTotal = order?.meals.reduce(
                 (acc, curr) => acc + curr.quantity * curr.price,
                 0

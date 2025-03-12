@@ -27,10 +27,10 @@ const MenuTabs: React.FC<MenuTabsProps> = ({ menuItems }) => {
       </TabsList>
 
       <TabsContent value="all" className="space-y-4">
-        {menuItems.map(item => (
+        {menuItems?.map(item => (
           <MenuItemCard key={item._id} item={item} />
         ))}
-        {menuItems.length === 0 && (
+        {menuItems?.length === 0 && (
           <p className="text-center py-8 text-muted-foreground">No menu items available</p>
         )}
       </TabsContent>

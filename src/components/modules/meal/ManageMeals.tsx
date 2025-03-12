@@ -1,34 +1,14 @@
 // 'use client';
 
-// import React, { useEffect, useState } from 'react';
 import AddMealDialog from './AddMealDialog';
 import MenuTabs from './MenuTabs';
 import { getMenus } from '@/services/Menus';
 
-// interface IMeal {
-//   _id: string;
-//   name: string;
-//   description: string;
-//   cuisineSpecialties: string[];
-//   price: string;
-//   experience: string;
-//   imageUrl: string;
-//   category: string;
-//   mealTypes: string[];
-//   dietaryTags: string[];
-// }
 
 const PostMealMenu = async () => {
-  // const [menuItems, setMenuItems] = useState<IMeal[] | []>([]);
 
-  // useEffect(() => {
-  //   const getAllMenus = async () => {
   const menus = await getMenus();
-  //     setMenuItems(menus?.data);
-  //   };
 
-  //   getAllMenus();
-  // }, []);
 
   return (
     <div className="space-y-6">

@@ -5,7 +5,6 @@ import ManageMeals from '@/components/modules/meal/ManageMeals';
 export default function ManageMenus() {
   return (
     <div>
-      {/* <PostMealMenu /> */}
       <ManageMeals />
     </div>
   );

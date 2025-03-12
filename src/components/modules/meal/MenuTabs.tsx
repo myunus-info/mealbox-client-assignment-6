@@ -3,6 +3,7 @@ import MenuItemCard from './MenuItemCard';
 
 interface IMeal {
   _id: string;
+  provider: string;
   name: string;
   description: string;
   cuisineSpecialties: string[];

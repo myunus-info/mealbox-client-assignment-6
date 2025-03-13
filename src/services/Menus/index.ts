@@ -43,7 +43,7 @@ export async function getMenus(query?: TQuery) {
 
 export async function addMenu(menuData: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/menu`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
@@ -62,7 +62,7 @@ export async function addMenu(menuData: FieldValues) {
 
 export async function updateMenu(menuId: string, menuData: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${menuId}`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/menu/${menuId}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
@@ -81,7 +81,7 @@ export async function updateMenu(menuId: string, menuData: FieldValues) {
 
 export async function deleteMenu(menuId: string) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${menuId}`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/menu/${menuId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
@@ -98,7 +98,7 @@ export async function deleteMenu(menuId: string) {
 
 export async function getSingleMenu(mealId: string) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${mealId}`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/menu/${mealId}`, {
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
       },

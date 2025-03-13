@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import Link from 'next/link';
 import Logo from '@/assets/svgs/Logo';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,6 +23,7 @@ import { useUser } from '@/context/UserContext';
 export default function LoginForm() {
   const form = useForm({
     resolver: zodResolver(loginSchema),
+    defaultValues: { email: '', password: '' },
   });
 
   const { setIsLoading } = useUser();
@@ -35,7 +36,7 @@ export default function LoginForm() {
     formState: { isSubmitting },
   } = form;
 
-  const onSubmit: SubmitHandler<FieldValues> = async data => {
+  const onSubmit: SubmitHandler<{ email: string; password: string }> = async data => {
     try {
       const res = await loginUser(data);
       if (res?.success) {

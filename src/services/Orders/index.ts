@@ -7,7 +7,7 @@ import { FieldValues } from 'react-hook-form';
 
 export async function getOrders() {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/customers/orders`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/customers/orders`, {
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
       },
@@ -22,7 +22,7 @@ export async function getOrders() {
 
 export async function makeOrder(orderData: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/customers/order`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/customers/order`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,

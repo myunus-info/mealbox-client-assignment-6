@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 
 export async function getCustomerOrders() {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/orders`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/orders`, {
       next: {
         tags: ['CustomerOrders'],
       },
@@ -23,7 +23,7 @@ export async function getCustomerOrders() {
 
 export async function respondToCustomerOrder(newStatus: { _id: string; status: string }) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/respond`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/respond`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,

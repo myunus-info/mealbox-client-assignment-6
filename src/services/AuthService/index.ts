@@ -7,7 +7,7 @@ import { FieldValues } from 'react-hook-form';
 
 export async function registerUser(userInfo: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/register`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userInfo),
@@ -21,9 +21,10 @@ export async function registerUser(userInfo: FieldValues) {
   }
 }
 
-export async function loginUser(userInfo: FieldValues) {
+export async function loginUser(userInfo: { email: string; password: string }) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`, {
+    // const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userInfo),
@@ -51,7 +52,7 @@ export async function logout() {
 
 export const getNewToken = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/refresh-token`, {
+    const res = await fetch(`https://mealbox-server.vercel.app/api/auth/refresh-token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

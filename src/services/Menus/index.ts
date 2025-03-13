@@ -26,7 +26,7 @@ export async function getMenus(query?: TQuery) {
   }
 
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu?${params}`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/menu?${params}`, {
       next: {
         tags: ['Menus'],
       },

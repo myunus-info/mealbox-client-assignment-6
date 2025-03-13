@@ -7,7 +7,7 @@ import { FieldValues } from 'react-hook-form';
 
 export async function getCustomerProfile() {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/users/me`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/users/me`, {
       next: {
         tags: ['Profile'],
       },
@@ -24,7 +24,7 @@ export async function getCustomerProfile() {
 
 export async function updateCustomerProfile(profileUpdates: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/users/me`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/users/me`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
@@ -43,7 +43,7 @@ export async function updateCustomerProfile(profileUpdates: FieldValues) {
 
 export async function getProviderProfile() {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/me`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/me`, {
       next: {
         tags: ['Profile'],
       },
@@ -60,7 +60,7 @@ export async function getProviderProfile() {
 
 export async function updateProviderProfile(profileUpdates: FieldValues) {
   try {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/profile`, {
+    const data = await fetch(`https://mealbox-server.vercel.app/api/providers/profile`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${(await cookies()).get('accessToken')!.value}`,
